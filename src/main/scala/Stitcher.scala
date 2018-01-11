@@ -3,13 +3,13 @@ trait Color
 object Red extends Color
 object Blue extends Color
 
-
 trait Orientation
 
 class Horizontal(horizontalLocation: HorizontalLocation) extends Orientation
 class Vertical(verticalLocation: VerticalLocation) extends Orientation
 class Diagonal(diagonalLocation: DiagonalLocation) extends Orientation
-class QuarterDiagonal(diagonalQuarterLocation: DiagonalQuarterLocation) extends Orientation
+class QuarterDiagonal(diagonalQuarterLocation: DiagonalQuarterLocation)
+    extends Orientation
 
 trait Location
 
@@ -35,10 +35,9 @@ trait Stitch
 class CrossStitch(color: Color) extends Stitch
 
 class BackStitch(
-                  color: Color,
-                  orientation: Orientation
-                ) extends Stitch
-
+    color: Color,
+    orientation: Orientation
+) extends Stitch
 
 object SandBox {
   val firstBackStitch = new BackStitch(Red, new Horizontal(B))
@@ -51,10 +50,12 @@ object SandBox {
 }
 
 class HalfStitch(color: Color, diagonal: Diagonal) extends Stitch
-class QuarterStitch(color: Color, quarterDiagonal: QuarterDiagonal) extends Stitch
+class QuarterStitch(color: Color, quarterDiagonal: QuarterDiagonal)
+    extends Stitch
 
 // Make sure the 2 component stitches don't have the same orientation
-class ThreeQuarter(halfStitch: HalfStitch, quarterStitch: QuarterStitch) extends Stitch
+class ThreeQuarter(halfStitch: HalfStitch, quarterStitch: QuarterStitch)
+    extends Stitch
 
 class ComplexStitch(halfStitch: HalfStitch, quarterStitch: QuarterStitch)
 
