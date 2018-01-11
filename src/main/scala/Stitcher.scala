@@ -5,10 +5,12 @@ object Blue extends Color
 
 trait Orientation
 
-class Horizontal(horizontalLocation: HorizontalLocation) extends Orientation
+class Horizontal(horizontalLocation: HorizontalLocation)
+    extends Orientation
 class Vertical(verticalLocation: VerticalLocation) extends Orientation
 class Diagonal(diagonalLocation: DiagonalLocation) extends Orientation
-class QuarterDiagonal(diagonalQuarterLocation: DiagonalQuarterLocation)
+class QuarterDiagonal(
+    diagonalQuarterLocation: DiagonalQuarterLocation)
     extends Orientation
 
 trait Location
@@ -44,7 +46,8 @@ object SandBox {
 //  val secondBackStitch = new BackStitch(Red, new Diagonal(B)) // Should NOT be allowed!
 
   val firstHalfStitch = new HalfStitch(Red, new Diagonal(TLtoBR))
-  val firstQuarterStich = new QuarterStitch(Red, new QuarterDiagonal(BLtoM))
+  val firstQuarterStich =
+    new QuarterStitch(Red, new QuarterDiagonal(BLtoM))
 
   val firstThreeQuarterStitch = ???
 }
@@ -54,10 +57,12 @@ class QuarterStitch(color: Color, quarterDiagonal: QuarterDiagonal)
     extends Stitch
 
 // Make sure the 2 component stitches don't have the same orientation
-class ThreeQuarter(halfStitch: HalfStitch, quarterStitch: QuarterStitch)
+class ThreeQuarter(halfStitch: HalfStitch,
+                   quarterStitch: QuarterStitch)
     extends Stitch
 
-class ComplexStitch(halfStitch: HalfStitch, quarterStitch: QuarterStitch)
+class ComplexStitch(halfStitch: HalfStitch,
+                    quarterStitch: QuarterStitch)
 
 trait Grid {
   def colorize(square: Square, crossStitch: CrossStitch) = ???
